@@ -21,7 +21,7 @@ function Movies() {
 
 
         setMovies(sortedList)
-        setToggleButton(true)
+      //  setToggleButton(true)
 
     }
     function sortBackwordMovies(){
@@ -30,16 +30,16 @@ function Movies() {
         })
 
         setMovies(sortedList)
-        setToggleButton(false)
+      //  setToggleButton(false)
 
     }
     return (
         <div>
             <h1>Movies</h1>
-             <button className="sort" onClick={sortMovies}>
+             <button className="sort dec" onClick={sortMovies}>
                 Sort Descending
              </button>
-            <button className="sort" onClick={sortBackwordMovies}>
+            <button className="sort dec" onClick={sortBackwordMovies}>
             Sort Ascending
             </button>
 
