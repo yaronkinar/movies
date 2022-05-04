@@ -17,6 +17,8 @@ button{
 .Movie{
   border: 1px solid black;
   width:300px;
+
   max-height: 300px;
   margin: 10px;
+  border-radius: 5px ;
 }
