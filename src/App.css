@@ -1,5 +1,10 @@
-.App {
-  text-align: center;
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
 }
 .movieList{
   display: flex;
@@ -10,6 +15,11 @@
   flex-direction: column;
 
 
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 button{
   margin: 10px;

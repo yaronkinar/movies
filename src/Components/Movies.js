@@ -34,14 +34,17 @@ function Movies() {
 
     }
     return (
-        <div>
+        <div className="container">
             <h1>Movies</h1>
-             <button className="sort dec" onClick={sortMovies}>
-                Sort Descending
-             </button>
-            <button className="sort dec" onClick={sortBackwordMovies}>
-            Sort Ascending
-            </button>
+            <div className="buttons">
+                <button className="sort dec" onClick={sortMovies}>
+                    Sort Descending
+                </button>
+                <button className="sort dec" onClick={sortBackwordMovies}>
+                    Sort Ascending
+                </button>
+            </div>
+
 
 
             <div className="movieList">
