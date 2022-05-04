@@ -16,35 +16,35 @@ function Movies() {
         })
     }, [])
     useEffect(function () {
+        function sortMovies() {
+            const sortedList = [...movies].sort((a, b) => {
+                return a.title.localeCompare(b.title)
+            });
+            setMovies(sortedList)
+        }
+        function sortBackwardMovies() {
+            const sortedList = [...movies].sort((a, b) => {
+                return b.title.localeCompare(a.title);
+            })
+
+            setMovies(sortedList)
+
+        }
+
         if (sortAscending) {
             sortMovies()
         } else {
-            sortBackwordMovies()
+            sortBackwardMovies()
         }
-    }, [sortAscending])
-
-    function sortMovies() {
-        const sortedList = [...movies].sort((a, b) => {
-            return a.title.localeCompare(b.title)
-        });
+    }, [sortAscending,movies])
 
 
-        setMovies(sortedList)
-
-    }
 
     function handleToggle() {
         setSortAscending(!sortAscending)
     }
 
-    function sortBackwordMovies() {
-        const sortedList = [...movies].sort((a, b) => {
-            return b.title.localeCompare(a.title);
-        })
 
-        setMovies(sortedList)
-
-    }
 
     return (
         <div className="container">
