@@ -7,9 +7,9 @@ function Movies() {
     const [movies,setMovies] = useState([])
     const [toggleButton,setToggleButton] = useState(false)
     useEffect(function () {
-        axios.get(" https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json", () => {
-        }).then(r  =>{
-            let data = r.data.slice(0,9)
+        let url = " https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json";
+        axios.get(url).then(r  =>{
+            let data = r.data
             setMovies(data)
 
         })
@@ -36,7 +36,7 @@ function Movies() {
     }
     return (
         <div>
-            <h1>Movies</h1> {toggleButton ? "true":"false"}
+            <h1>Movies</h1>
              <button className="sort" onClick={sortMovies}>
                 Sort dec
             </button>
@@ -46,7 +46,7 @@ function Movies() {
 
 
             <div className="movieList">
-                {movies?.map(function (movie,id) {
+                {movies.slice(0,9)?.map(function (movie,id) {
                     return  (<Movie key={movie.title}  id={id}{...movie}/>)
                 })}
             </div>
