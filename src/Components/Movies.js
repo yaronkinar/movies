@@ -5,7 +5,6 @@ import Movie from "./Movie";
 function Movies() {
 
     const [movies,setMovies] = useState([])
-    const [toggleButton,setToggleButton] = useState(false)
     useEffect(function () {
         let url = " https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json";
         axios.get(url).then(r  =>{
