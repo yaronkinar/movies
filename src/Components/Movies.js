@@ -37,11 +37,11 @@ function Movies() {
         <div>
             <h1>Movies</h1>
              <button className="sort" onClick={sortMovies}>
-                Sort dec
-            </button>
+                Sort Descending
+             </button>
             <button className="sort" onClick={sortBackwordMovies}>
-            Sort as
-        </button>
+            Sort Ascending
+            </button>
 
 
             <div className="movieList">
