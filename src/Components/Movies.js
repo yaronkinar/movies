@@ -17,24 +17,26 @@ function Movies() {
     }, [])
 
     const sortBackWords = useCallback(
-        () => {
+        (movies) => {
             const sortedList = [...movies].sort((a, b) => {
                 return b.title.localeCompare(a.title);
             })
 
-            setMovies(sortedList)
+            return sortedList
+           // setMovies(sortedList)
         },
-        [movies],
+        [],
     );
 
+
     let sortMoviesCallback = useCallback(
-        () => {
+        (movies) => {
             const sortedList = [...movies].sort((a, b) => {
                 return a.title.localeCompare(b.title)
             });
-            setMovies(sortedList)
+            return sortedList
         },
-        [movies],
+        [],
     );
 
     useEffect(function () {
@@ -42,11 +44,13 @@ function Movies() {
 
 
         if (sortAscending) {
-            sortMoviesCallback()
+            const sortMoviesCallback1 = sortMoviesCallback(movies);
+            setMovies(sortMoviesCallback1)
         } else {
-            sortBackWords()
+            const sortBackWords1 = sortBackWords(movies);
+            setMovies(sortBackWords1)
         }
-    }, [sortAscending,sortMoviesCallback,sortBackWords])
+    }, [sortAscending,sortMoviesCallback,sortBackWords,movies])
 
 
 

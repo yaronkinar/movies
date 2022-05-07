@@ -31,7 +31,7 @@ function Movie({id,title,cast,year,genres}){
         </div>
         <div className="ganres">
 
-            {genres.length ? <span>Genres:</span>:""}
+            {genres?.length ? <span>Genres:</span>:""}
             {getGenres()}
         </div>
         <div className="year" >Year:{year}</div>
