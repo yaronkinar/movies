@@ -6,7 +6,7 @@ import Movie from "./Movie";
 function Movies() {
 
     const [movies, setMovies] = useState([])
-    const [sortAscending, setSortAscending] = useState(false)
+ //   const [sortAscending, setSortAscending] = useState(false)
     useEffect(function () {
         let url = " https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json";
         axios.get(url).then(r => {
@@ -15,7 +15,7 @@ function Movies() {
 
         })
     }, [])
-    useEffect(function () {
+   /* useEffect(function () {
         function sortMovies() {
             const sortedList = [...movies].sort((a, b) => {
                 return a.title.localeCompare(b.title)
@@ -36,12 +36,18 @@ function Movies() {
         } else {
             sortBackwardMovies()
         }
-    }, [sortAscending,movies])
-
+    }, [sortAscending])*/
+    function sortMovies() {
+        const sortedList = [...movies].sort((a, b) => {
+            return a.title.localeCompare(b.title)
+        });
+        setMovies(sortedList)
+    }
 
 
     function handleToggle() {
-        setSortAscending(!sortAscending)
+      //  setSortAscending(!sortAscending)
+        sortMovies()
     }
 
 
