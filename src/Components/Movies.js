@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Movie from "./Movie";
 
 // https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
@@ -15,28 +15,38 @@ function Movies() {
 
         })
     }, [])
-    useEffect(function () {
-        function sortMovies() {
-            const sortedList = [...movies].sort((a, b) => {
-                return a.title.localeCompare(b.title)
-            });
-            setMovies(sortedList)
-        }
-        function sortBackwardMovies() {
+
+    const sortBackWords = useCallback(
+        () => {
             const sortedList = [...movies].sort((a, b) => {
                 return b.title.localeCompare(a.title);
             })
 
             setMovies(sortedList)
+        },
+        [movies],
+    );
 
-        }
+    let sortMoviesCallback = useCallback(
+        () => {
+            const sortedList = [...movies].sort((a, b) => {
+                return a.title.localeCompare(b.title)
+            });
+            setMovies(sortedList)
+        },
+        [movies],
+    );
+
+    useEffect(function () {
+
+
 
         if (sortAscending) {
-            sortMovies()
+            sortMoviesCallback()
         } else {
-            sortBackwardMovies()
+            sortBackWords()
         }
-    }, [sortAscending,movies])
+    }, [sortAscending,sortMoviesCallback,sortBackWords])
 
 
 
